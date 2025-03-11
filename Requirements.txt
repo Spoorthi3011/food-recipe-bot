@@ -1,0 +1,4 @@
+streamlit
+pandas
+gtts
+openpyxl  # If using Excel dataset
