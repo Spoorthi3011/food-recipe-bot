@@ -1,6 +1,5 @@
 streamlit
 pandas
-gtts==2.3.2
+gtts
 openpyxl
 openai
-gtts --no-cache-dir
