@@ -3,3 +3,4 @@ pandas
 gtts
 openpyxl
 openai
+gtts --no-cache-dir
