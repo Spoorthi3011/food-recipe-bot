@@ -1,5 +1,8 @@
 import os
 os.system("pip install -r Requirements.txt")
+import os
+os.system("pip install gtts")
+from gtts import gTTS
 
 import streamlit as st
 import pandas as pd
