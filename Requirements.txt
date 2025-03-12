@@ -1,5 +1,5 @@
 streamlit
 pandas
-gtts
+pyttsx3
 openpyxl
 openai
