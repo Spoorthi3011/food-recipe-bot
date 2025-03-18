@@ -3,7 +3,6 @@ os.system("pip install -r Requirements.txt")
 
 import streamlit as st
 import pandas as pd
-from gtts import gTTS
 
 # Page configuration
 st.set_page_config(page_title="🍛 Indian Food Recipes Bot", layout="wide")
@@ -32,13 +31,6 @@ if "feedback" not in st.session_state:
 
 if "images" not in st.session_state:
     st.session_state["images"] = {}
-
-# Function to convert text to speech
-def text_to_speech(text, lang='en'):
-    tts = gTTS(text=text, lang=lang)
-    audio_file = "recipe.mp3"
-    tts.save(audio_file)
-    return audio_file
 
 if recipes_df is None:
     st.error("Failed to load dataset.")
@@ -101,16 +93,9 @@ else:
             st.write(ingredients_text)
 
             # Instructions
-            st.markdown("**📜 Instructions:**")
+            st.markdown("**📝 Instructions:**")
             instructions_text = "\n".join([f"- {step.strip()}" for step in recipe['TranslatedInstructions'].split('.') if step.strip()])
             st.write(instructions_text)
-
-            # Text-to-Speech Button
-            if st.button("🔊 Play Recipe Instructions"):
-                combined_text = f"Ingredients:\n{ingredients_text}\n\nInstructions:\n{instructions_text}"
-                audio_file = text_to_speech(combined_text)
-                audio_bytes = open(audio_file, "rb").read()
-                st.audio(audio_bytes, format="audio/mp3")
 
         # User Feedback Section
         st.markdown("### 💬 User Feedback")
